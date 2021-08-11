@@ -18,3 +18,13 @@
 .navbarHidden {
   transform: translate3d(0, calc(-100% - 2px), 0);
 }
+
+.userDropdownCard {
+  box-shadow: none;
+}
+
+.userDropdownAvatar {
+  -webkit-transform: translateX(50%);
+  -moz-transform: translateX(50%);
+  transform: translateX(50%);
+}

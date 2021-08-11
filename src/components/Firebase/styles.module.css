@@ -1,0 +1,16 @@
+.loginCard {
+  width: 330px;
+  height: 350px;
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px;
+}
+
+.tos {
+  font-size: 11px;
+}

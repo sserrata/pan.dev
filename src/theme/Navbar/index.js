@@ -15,6 +15,7 @@ import NavbarItem from "@theme/NavbarItem";
 import Toggle from "@theme/Toggle";
 import clsx from "clsx";
 import React, { useCallback, useEffect, useState } from "react";
+import getFirebase from "../../components/Firebase/auth";
 import styles from "./styles.module.css"; // retrocompatible with v1
 
 const DefaultNavItemPosition = "right"; // If split links by left/right
@@ -34,6 +35,17 @@ function splitNavItemsByPosition(items) {
 }
 
 function Navbar() {
+  const firebase = getFirebase();
+  const userSessionKey =
+    typeof window !== "undefined"
+      ? Object.keys(sessionStorage).filter((key) =>
+          key.startsWith("firebase:authUser")
+        )[0]
+      : null;
+  const userSession =
+    typeof window !== "undefined" && userSessionKey
+      ? JSON.parse(sessionStorage.getItem(userSessionKey))
+      : null;
   const {
     navbar: { items, hideOnScroll, style },
     colorMode: { disableSwitch: disableColorModeSwitch },
@@ -65,6 +77,7 @@ function Navbar() {
   }, [windowSize]);
   const hasSearchNavbarItem = items.some((item) => item.type === "search");
   const { leftItems, rightItems } = splitNavItemsByPosition(items);
+
   return (
     <nav
       ref={navbarRef}
@@ -109,6 +122,67 @@ function Navbar() {
               checked={isDarkTheme}
               onChange={onToggleChange}
             />
+          )}
+          {userSession ? (
+            <div className="dropdown dropdown--hoverable dropdown--right">
+              <img
+                src={userSession.photoURL}
+                className="avatar__photo-link avatar__photo avatar__photo--sm"
+              />
+              <ul className="dropdown__menu">
+                <li>
+                  <div className={clsx("card", styles.userDropdownCard)}>
+                    <div className="card__header">
+                      <div className="avatar avatar--vertical">
+                        <img
+                          className={clsx(
+                            "avatar__photo avatar__photo--xl",
+                            styles.userDropdownAvatar
+                          )}
+                          src={userSession.photoURL}
+                        />
+                        <div className="avatar__intro">
+                          <div className="avatar__name">
+                            {userSession.displayName}
+                          </div>
+                          <small className="avatar__subtitle text text--secondary">
+                            {userSession.email}
+                          </small>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="card__footer">
+                      <a
+                        onClick={() => firebase.auth().signOut()}
+                        className="button button--primary button--block"
+                      >
+                        Sign out
+                      </a>
+                      <hr></hr>
+                      <a
+                        target="_blank"
+                        href="https://www.paloaltonetworks.com/legal-notices/terms-of-use"
+                      >
+                        <small className="text text--secondary">
+                          Terms of Use
+                        </small>
+                      </a>
+                      &emsp;
+                      <a
+                        target="_blank"
+                        href="https://www.paloaltonetworks.com/legal-notices/privacy"
+                      >
+                        <small className="text text--secondary">
+                          Privacy Policy
+                        </small>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <></>
           )}
         </div>
       </div>
