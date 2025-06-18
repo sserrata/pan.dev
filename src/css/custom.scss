@@ -11,9 +11,12 @@
  */
 /* You can override the default Infima variables here. */
 
-@use "tailwindcss";
+/* Import Tailwind layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-// revert default list-style overridden by tailwindcss
+/* Revert list style reset from Tailwind */
 @layer base {
   ul,
   ol {
