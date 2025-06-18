@@ -3,7 +3,8 @@
   padding: 28px;
   margin-bottom: 24px;
   flex: 1;
-  min-height: 220px;
+  /* Bump min-height so all cards align even with longer text */
+  min-height: 260px;
   min-width: 260px;
   display: flex;
   flex-direction: column;

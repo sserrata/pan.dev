@@ -43,7 +43,8 @@
 
 .ctaButtonsRow {
   display: flex;
-  align-items: flex-start;
+  /* Stretch cards so they share the same height */
+  align-items: stretch;
   justify-content: flex-start;
   gap: 16px;
   width: 100%;
@@ -762,7 +763,8 @@ html[data-theme="dark"] .toolCardContainer {
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
-  align-items: flex-start;
+  /* Stretch items so cards end up the same height */
+  align-items: stretch;
   justify-content: center;
   width: 100%;
 }
