@@ -154,6 +154,8 @@ html[data-theme="dark"] .heroSection {
 }
 
 .heroContainer {
+  position: relative;
+  z-index: 1;
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;

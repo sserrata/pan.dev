@@ -39,7 +39,7 @@ function MainContent() {
           <div className={`${styles.heroBlob} ${styles.heroBlob6}`} />
         </div>
         <div
-          className={`container ${styles.heroContainer}`}
+          className={styles.heroContainer}
           style={{
             display: "flex",
             flexDirection: "column",
@@ -216,7 +216,7 @@ print(res)
                   : "0 2px 12px 0 rgba(124,58,237,0.04)",
               padding: 32,
               color: colorMode === "dark" ? "#fff" : "#232237",
-              fontSize: 18,
+              fontSize: 16,
               minHeight: 180,
               display: "flex",
               flexDirection: "column",
@@ -243,6 +243,7 @@ print(res)
             link="/prisma-airs/api/airuntimesecurity/prisma-airs-api/"
             linkLabel="Full API Reference"
             colorMode={colorMode}
+            style={{ minHeight: 180 }}
           >
             <div>
               Full API documentation with endpoint details, request/response
@@ -254,6 +255,7 @@ print(res)
             link="https://docs.paloaltonetworks.com/ai-runtime-security/activation-and-onboarding/ai-runtime-security-api-intercept-overview"
             linkLabel="Read the Guide"
             colorMode={colorMode}
+            style={{ minHeight: 180 }}
           >
             <div>
               Guided setup for developers: activate your profile, configure
