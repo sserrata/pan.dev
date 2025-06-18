@@ -153,6 +153,22 @@ html[data-theme="dark"] .heroSection {
   z-index: 1;
 }
 
+.heroContainer {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 32px;
+  padding-right: 32px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 700px) {
+  .heroContainer {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
 .heroGlass {
   background: rgba(20, 20, 20, 0.68);
   border-radius: 18px;
@@ -163,7 +179,7 @@ html[data-theme="dark"] .heroSection {
   position: relative;
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
-  max-width: min(100%, 1100px);
+  max-width: min(100%, 1200px);
   width: 100%;
   margin-bottom: 8px;
   text-align: left;
@@ -744,7 +760,7 @@ html[data-theme="dark"] .toolCardContainer {
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
-  align-items: stretch;
+  align-items: flex-start;
   justify-content: center;
   width: 100%;
 }

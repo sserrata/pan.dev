@@ -39,11 +39,8 @@ function MainContent() {
           <div className={`${styles.heroBlob} ${styles.heroBlob6}`} />
         </div>
         <div
-          className="container"
+          className={`container ${styles.heroContainer}`}
           style={{
-            maxWidth: 1100,
-            width: "100%",
-            margin: "0 auto",
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
