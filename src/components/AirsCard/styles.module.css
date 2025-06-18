@@ -1,0 +1,24 @@
+.card {
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 24px;
+  flex: 1;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: box-shadow 0.2s, border 0.2s, background 0.2s;
+  cursor: default;
+}
+
+.title {
+  margin-top: 0;
+  font-weight: 700;
+}
+
+.link {
+  font-weight: 500;
+  margin-top: auto;
+  text-decoration: none;
+  transition: color 0.2s;
+}
